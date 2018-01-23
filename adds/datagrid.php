@@ -163,7 +163,8 @@
                 if (sizeof($this->_fields)>0):
                     foreach ($this->_fields as $field):
                         if(in_array($field, $this->_ttfields)):
-                            if(method_exists('ON\Text', 'moeda')):
+                            if((in_array($field, $this->_mnfields))&&
+                               (method_exists('ON\Text', 'moeda'))):
                                 $this->_grid.='<td>'.Text::moeda($total[$field]).'</td>';
                             else:
                                 $this->_grid.='<td>'.$total[$field].'</td>';
@@ -175,7 +176,8 @@
                 else:
                     foreach ($reg as $field=>$value):
                         if(in_array($field, $this->_ttfields)):
-                            if(method_exists('ON\Text', 'moeda')):
+                            if((in_array($field, $this->_mnfields))&&
+                               (method_exists('ON\Text', 'moeda'))):
                                 $this->_grid.='<td>'.Text::moeda($total[$field]).'</td>';
                             else:
                                 $this->_grid.='<td>'.$total[$field].'</td>';
